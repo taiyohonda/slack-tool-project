@@ -1,0 +1,24 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended" // PrettierのルールをESLintに適用
+  ],
+  "rules": {
+    // GASのグローバル変数を未定義エラーから除外 (SpreadsheetApp, Logger, Browserなど)
+    "no-undef": "off",
+    // GASの関数はCamelCaseではないことが多いため、命名規則のチェックを緩める
+    "@typescript-eslint/naming-convention": "off",
+    // TypeScriptで未使用変数を許可 (GASのトリガー関数などで引数を使わないことがあるため)
+    "@typescript-eslint/no-unused-vars": "off" 
+  }
+}
